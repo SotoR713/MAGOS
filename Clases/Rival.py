@@ -8,12 +8,12 @@ class Rival(Mago):
 
         puntos = statsPorNivelRival * (self._nivel - (2*(self._nivel//10)))
 
-        while puntos > 4:
+        while puntos > statsPorNivelRival:
             self._hpMax += 1
             self._fuerza += 1
             self._armadura += 1
             self._velocidad += 1
-            puntos -= 4
+            puntos -= statsPorNivelRival
         while puntos > 0:
             self._velocidad +=1
             puntos -= 1

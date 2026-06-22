@@ -22,6 +22,7 @@ dañoFuerteElemental = 50
 
 porcentajeCuracionCofre = 30
 porcentajeCuracionEvento = 40
+porcentajeCuracionVictoria= 30
 
 porcentajeDañoCofre = 10
 
@@ -39,3 +40,4 @@ posicionesJefe = 10
 
 siguienteRival = 6 #el valor es igual o menor
 siguienteCofre = 8 #el valor es mayor a siguienteRival y menor o igual que el numero seleccionado, el resto es curacion
+

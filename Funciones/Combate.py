@@ -1,3 +1,5 @@
+from Configuracion import *
+
 def enfrentamiento(mago1,mago2,generador):
     turno = 1
     print("=============== ⚔  COMBATE  ⚔ ===============")
@@ -55,7 +57,7 @@ def enfrentamiento(mago1,mago2,generador):
     
     if ganador == mago1:
         mago1.subir_Nivel()
-        mago1.curar((mago1.get_hpMax() * 3) // 10)
+        mago1.curar((mago1.get_hpMax() * porcentajeCuracionVictoria) // 10)
     
         
     mago1.mostrar_Stats()

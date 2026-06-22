@@ -8,12 +8,12 @@ class Jefe(Mago):
             
         puntos = statsPorNivelJefe * self._nivel
 
-        while puntos > 8:
+        while puntos > statsPorNivelJefe:
             self._hpMax += 1
             self._fuerza += 1
             self._armadura += 1
             self._velocidad += 1
-            puntos -= 4
+            puntos -= statsPorNivelJefe
         while puntos > 0:
             self._hpMax += 1
             self._velocidad +=1

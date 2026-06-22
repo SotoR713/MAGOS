@@ -107,7 +107,7 @@ class Mapa:
                 print("Subiste Nivel")
                 self._historial.append("→[↑]")
             elif v1 <= umbralCuracion:
-                vidaCurar=self.get_jugador()._hpMax*porcentajeCuracionCofre//100
+                vidaCurar=self.get_jugador().get_hpMax()*porcentajeCuracionCofre//100
                 self.get_jugador().curar(vidaCurar)
                 print(f"Recuperaste {vidaCurar} de vida")
                 self._historial.append("→[♥]")
@@ -116,7 +116,7 @@ class Mapa:
                 self.resolver_Evento(BRival)
                 print("BATALLA")
             else:
-                vidaDaño=self.get_jugador()._hpMax*porcentajeDañoCofre//100
+                vidaDaño=self.get_jugador().get_hpMax()*porcentajeDañoCofre//100
                 self.get_jugador().recibir_Daño(vidaDaño)
                 print(f"Has perdido {vidaDaño}")
                 self._historial.append("→[↓]")

@@ -1,0 +1,15 @@
+# Cache de Python (basura generada, cada quien la regenera)
+__pycache__/
+*.pyc
+
+# Carpetas del compilador a ejecutable (PyInstaller)
+build/
+dist/
+*.spec
+
+# Configuración de editor
+.vscode/
+
+# Entornos virtuales (por si algún día usas uno)
+.venv/
+venv/
