@@ -1,6 +1,7 @@
-from Clases.Elementos import *
+from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 from Clases.ValoracionCaracter import listaCaracteres
 from Clases.Jugador import Jugador
+from Configuracion import *
 
 def titulo_Inicio():
 
@@ -60,7 +61,7 @@ def nombrar_Jugador():
             print("Elemento no existe")
             elemento_Jugador = "error"
 
-    player1 = Jugador(idJugador,nombre_Usuario,elemento_Jugador,20,20,8,8,8,0)
+    player1 = Jugador(idJugador,nombre_Usuario,elemento_Jugador,vidaJugador,vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador,0)
 
     player1.mostrar_Stats()
     print(f"Semilla: {idJugador}")

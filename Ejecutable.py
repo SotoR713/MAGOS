@@ -1,5 +1,5 @@
 from Clases.Mapa import Mapa
-from Funciones.Interfaz import *
+from Funciones.Interfaz import titulo_Final, titulo_Inicio, nombrar_Jugador
 
 
 

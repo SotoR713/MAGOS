@@ -1,8 +1,9 @@
 from Clases.Generadores import Generadores
-from Clases.Eventos import *
-from Funciones.Calculadoras import *
-from Funciones.Fabrica import *
-from Funciones.Combate import *
+from Clases.Eventos import BRival,BJefe,Cofre,Curacion
+from Funciones.Calculadoras import raiz_digital
+from Funciones.Fabrica import crear_Jefe, crear_Rival
+from Funciones.Combate import enfrentamiento
+from Configuracion import *
 
 class Mapa:
     def __init__ (self,jugador):
@@ -49,7 +50,7 @@ class Mapa:
             return   self.get_siguiente1()
 
     def validar_vs_Jefe(self):
-        if (len(self._camino)) % 10 == 0:
+        if (len(self._camino)) % posicionesJefe == 0:
             return True
         else:
             return False
@@ -65,17 +66,17 @@ class Mapa:
     def  generar_siguiente_no_Jefe(self):
         v1 = (self.get_generador().aleatorio())
         v1=raiz_digital(v1)
-        if v1 <= 6:
+        if v1 <= siguienteRival:
             self._siguiente1= BRival
-        elif v1 <= 8:
+        elif v1 <= siguienteCofre:
             self._siguiente1= Cofre
         else:
             self._siguiente1= Curacion
         v2 = (self.get_generador().aleatorio() )
         v2=raiz_digital(v2)
-        if v2 <= 6:
+        if v2 <= siguienteRival:
             self._siguiente0= BRival
-        elif v2 <= 8:
+        elif v2 <= siguienteCofre:
             self._siguiente0= Cofre
         else:
             self._siguiente0= Curacion
@@ -95,27 +96,27 @@ class Mapa:
             enfrentamiento(self.get_jugador(), bjefe,self.get_generador())
             self._historial.append( "→☠")
         elif evento == Curacion:
-            self.get_jugador().curar(self.get_jugador().get_hpMax()*3//10)
+            self.get_jugador().curar(self.get_jugador().get_hpMax()*porcentajeCuracionEvento//100)
             self._historial.append("→♥")
         elif evento == Cofre:
             v1 = (self.get_generador().aleatorio() * self.get_generador().aleatorio() )// 713
             v1 = raiz_digital(v1)
 
-            if v1 <= 4:
+            if v1 <= umbralSubir:
                 self.get_jugador().subir_Nivel()
                 print("Subiste Nivel")
                 self._historial.append("→[↑]")
-            elif v1 <= 7:
-                vidaCurar=self.get_jugador()._hpMax*3//10
+            elif v1 <= umbralCuracion:
+                vidaCurar=self.get_jugador()._hpMax*porcentajeCuracionCofre//100
                 self.get_jugador().curar(vidaCurar)
                 print(f"Recuperaste {vidaCurar} de vida")
                 self._historial.append("→[♥]")
-            elif v1 <= 8:
+            elif v1 <= umbralBatalla:
                 self._historial.append("[")
                 self.resolver_Evento(BRival)
                 print("BATALLA")
             else:
-                vidaDaño=self.get_jugador()._hpMax*1//10
+                vidaDaño=self.get_jugador()._hpMax*porcentajeDañoCofre//100
                 self.get_jugador().recibir_Daño(vidaDaño)
                 print(f"Has perdido {vidaDaño}")
                 self._historial.append("→[↓]")

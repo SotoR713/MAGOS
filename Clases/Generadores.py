@@ -1,3 +1,5 @@
+
+
 class Generadores:
     def __init__ (self,dado):
         self._dado = dado

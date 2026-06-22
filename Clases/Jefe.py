@@ -1,12 +1,12 @@
 from Clases.Magos import Mago
-from Clases.Elementos import * 
-
+from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
+from Configuracion import *
 
 class Jefe(Mago):
 
     def repartir_Stats(self):
             
-        puntos = 4 * self._nivel
+        puntos = statsPorNivelJefe * self._nivel
 
         while puntos > 8:
             self._hpMax += 1
@@ -21,17 +21,17 @@ class Jefe(Mago):
         self._hpActual = self._hpMax
    
     def calcular_Critico(self,rival,aleato,daño):
-        porcentajeDaño = 15
+        porcentajeDaño = porcentajeDañoCriticoJefe
       
         activacion = aleato % 100
 
         if activacion <= porcentajeDaño:
-            daño += (daño*50)//100
+            daño += (daño*bonificacionCriticoJefe)//100
         return daño
         
     def evasion(self, rival,aleato):
         
-        porcentajeEva = 10   
+        porcentajeEva = evasionJefe   
 
         activacion = aleato %100
 

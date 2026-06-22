@@ -1,8 +1,6 @@
-from Clases.Elementos import *
-from Clases.Rival import *
-from Clases.Jefe import *
-from Clases.ValoracionCaracter import *
-from Clases.Jugador import *
+from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
+from Clases.Rival import Rival, listaRivales
+from Clases.Jefe import listaJefes, Jefe
 
 
 

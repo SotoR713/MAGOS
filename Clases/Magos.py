@@ -1,3 +1,5 @@
+from Configuracion import *
+
 class Mago:
     def __init__ (self,ID,nombre,elemento,hpActual,hpMax,fuerza,armadura,velocidad,nivel):
         self._ID = ID
@@ -45,14 +47,14 @@ class Mago:
 
     def calcular_Daño(self,objetivo):
         daño = self.get_fuerza() - objetivo.get_armadura()
-        if daño < 1:
-            daño=1
+        if daño < dañoMinimo:
+            daño=dañoMinimo
         if objetivo.get_elemento().get_nombre() == self.get_elemento().get_fortaleza():
-            daño += (daño*5)//10
+            daño += (daño*dañoFuerteElemental)//100
         elif objetivo.get_elemento().get_nombre() == self.get_elemento().get_debilidad():
-            daño = (daño*5)//10
-        if daño < 1:
-           daño=1
+            daño = (daño*dañoFuerteElemental)//100
+        if daño < dañoMinimo:
+           daño=dañoMinimo
         return daño
         
     def recibir_Daño(self,daño):

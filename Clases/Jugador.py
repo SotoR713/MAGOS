@@ -1,4 +1,5 @@
 from Clases.Magos import Mago
+from Configuracion import *
 
 class Jugador(Mago):
 
@@ -8,7 +9,7 @@ class Jugador(Mago):
         self.mostrar_Stats()
 
     def repartir_Stats(self):
-        puntos = 4
+        puntos = statsPorNivelJugador
         while puntos > 0:
             esValor = False
             while esValor == False:
@@ -33,14 +34,14 @@ class Jugador(Mago):
 
 
     def calcular_Critico(self,rival,aleato,daño):
-        difVel = self._velocidad - rival._velocidad
+        difVel = self.get_velocidad() - rival.get_velocidad()
         if difVel <= 0:
             porcentajeDaño = 0
         else:
-            porcentajeDaño = (difVel*100)//rival._velocidad
+            porcentajeDaño = (difVel*100)//rival.get_velocidad()
         
-        if porcentajeDaño > 30:
-            porcentajeDaño= 30
+        if porcentajeDaño > maximoCriticoJugador:
+            porcentajeDaño= maximoCriticoJugador
         elif porcentajeDaño < 0:
             porcentajeDaño = 0     
 
@@ -48,19 +49,19 @@ class Jugador(Mago):
         activacion = activacion % 100
 
         if activacion <= porcentajeDaño:
-            daño += (daño*50)//100
+            daño += (daño*bonificacionCriticoJugador)//100
 
         return daño
     
     def evasion(self, rival,aleato):
-        difVel = self._velocidad - rival._velocidad
+        difVel = self.get_velocidad() - rival.get_velocidad()
         if difVel <= 0:
             porcentajeEva = 0
         else:
-            porcentajeEva = (difVel*100)//rival._velocidad
+            porcentajeEva = (difVel*100)//rival.get_velocidad()
         
-        if porcentajeEva > 20:
-            porcentajeEva= 20
+        if porcentajeEva > maximaevasionJugador:
+            porcentajeEva= maximaevasionJugador
         elif porcentajeEva < 0:
             porcentajeEva = 0     
 
