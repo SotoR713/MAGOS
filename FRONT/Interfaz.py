@@ -80,5 +80,5 @@ def limpiar_Pantalla():
     os.system("cls")
 
 
-def imprimir_Curacion(cantidadCurar,mago1,):
-     print(f"recupera {cantidadCurar}: vida {mago1._hpActual}/{mago1._hpMax}\n")    
+def imprimir_Curacion(vidaCurada,mago1,):
+     print(f"recupera {vidaCurada}: vida {mago1._hpActual}/{mago1._hpMax}\n")    

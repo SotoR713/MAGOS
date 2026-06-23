@@ -60,7 +60,8 @@ def enfrentamiento(mago1,mago2,generador):
     
     if ganador == mago1:
         mago1.subir_Nivel()
-        mago1.curar((mago1.get_hpMax() * porcentajeCuracionVictoria) // 100)
-        return mago1
+        vidaCurada = mago1.curar((mago1.get_hpMax() * porcentajeCuracionVictoria) // 100)
+         
+        return vidaCurada,mago1
         
     mago1.mostrar_Stats()
