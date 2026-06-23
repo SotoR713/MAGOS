@@ -1,5 +1,5 @@
 from Clases.Mapa import Mapa
-from Funciones.Interfaz import titulo_Final, titulo_Inicio, nombrar_Jugador
+from Funciones.Interfaz import titulo_Final, titulo_Inicio, nombrar_Jugador,limpiar_Pantalla
 
 
 
@@ -7,6 +7,7 @@ bucle_Juego=0
 while bucle_Juego ==0:
     titulo_Inicio()     
     player1 = nombrar_Jugador()
+   
     mapa1 = Mapa(player1)
     while mapa1.get_jugador().get_hpActual() >0:
         print(f"Posición: {mapa1.get_posicion()}")
@@ -18,3 +19,4 @@ while bucle_Juego ==0:
     titulo_Final()
     print("")
     input("presion ENTER para reiniciar")
+    limpiar_Pantalla()

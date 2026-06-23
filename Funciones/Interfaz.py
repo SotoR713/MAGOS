@@ -2,6 +2,7 @@ from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 from Clases.ValoracionCaracter import listaCaracteres
 from Clases.Jugador import Jugador
 from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
+import os
 
 def titulo_Inicio():
 
@@ -66,3 +67,13 @@ def nombrar_Jugador():
     player1.mostrar_Stats()
     print(f"Semilla: {idJugador}")
     return player1
+
+
+def jefe_Derrotado():
+    print(r"    __ _____ _____ _____    _____ _____ _____ _____ _____ ____  _____ ")
+    print(r" __|  |   __|   __|   __|  |  |  |   __|   | |     |     |    \|     |")
+    print(r"|  |  |   __|   __|   __|  |  |  |   __| | | |   --|-   -|  |  |  |  |")
+    print(r"|_____|_____|__|  |_____|   \___/|_____|_|___|_____|_____|____/|_____|")
+
+def limpiar_Pantalla():
+    os.system("cls")

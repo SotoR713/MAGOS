@@ -4,6 +4,7 @@ from Funciones.Calculadoras import raiz_digital
 from Funciones.Fabrica import crear_Jefe, crear_Rival
 from Funciones.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
+from Funciones.Interfaz import jefe_Derrotado,limpiar_Pantalla
 
 class Mapa:
     def __init__ (self,jugador):
@@ -31,6 +32,8 @@ class Mapa:
     
         
     def avanzar(self):
+        input("presion ENTER para continuar")
+        limpiar_Pantalla()
         eleccion = ""
         self._caminoHistorico=""
         for i in self._historial:
@@ -95,6 +98,7 @@ class Mapa:
             bjefe = crear_Jefe(self.get_generador().aleatorio(), len(self.get_camino()))
             enfrentamiento(self.get_jugador(), bjefe,self.get_generador())
             self._historial.append( "→☠")
+            jefe_Derrotado()
         elif evento == Curacion:
             self.get_jugador().curar(self.get_jugador().get_hpMax()*porcentajeCuracionEvento//100)
             self._historial.append("→♥")

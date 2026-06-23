@@ -1,6 +1,8 @@
 from Configuracion import porcentajeCuracionVictoria
+from Funciones.Interfaz import limpiar_Pantalla
 
 def enfrentamiento(mago1,mago2,generador):
+    limpiar_Pantalla()
     turno = 1
     print("=============== ⚔  COMBATE  ⚔ ===============")
     mago1.mostrar_Stats()

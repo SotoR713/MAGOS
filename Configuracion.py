@@ -36,7 +36,7 @@ fuerzaJugador = 8
 armaduraJugador = 8
 velocidadJugador = 8
 
-posicionesJefe = 10
+posicionesJefe = 5
 
 siguienteRival = 6 #el valor es igual o menor
 siguienteCofre = 8 #el valor es mayor a siguienteRival y menor o igual que el numero seleccionado, el resto es curacion
