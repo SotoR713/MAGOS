@@ -1,5 +1,5 @@
 from Configuracion import porcentajeCuracionVictoria
-from Funciones.Interfaz import limpiar_Pantalla
+from FRONT.Interfaz import limpiar_Pantalla
 
 def enfrentamiento(mago1,mago2,generador):
     limpiar_Pantalla()

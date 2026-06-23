@@ -1,5 +1,5 @@
-from Clases.Mapa import Mapa
-from Funciones.Interfaz import titulo_Final, titulo_Inicio, nombrar_Jugador,limpiar_Pantalla
+from BACK.Clases.Mapa import Mapa
+from FRONT.Interfaz import titulo_Final, titulo_Inicio, nombrar_Jugador,limpiar_Pantalla
 
 
 

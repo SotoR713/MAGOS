@@ -1,6 +1,6 @@
-from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
-from Clases.ValoracionCaracter import listaCaracteres
-from Clases.Jugador import Jugador
+from BACK.Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
+from BACK.Clases.ValoracionCaracter import listaCaracteres
+from BACK.Clases.Jugador import Jugador
 from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
 import os
 

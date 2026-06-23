@@ -1,10 +1,10 @@
-from Clases.Generadores import Generadores
-from Clases.Eventos import BRival,BJefe,Cofre,Curacion
-from Funciones.Calculadoras import raiz_digital
-from Funciones.Fabrica import crear_Jefe, crear_Rival
-from Funciones.Combate import enfrentamiento
+from BACK.Clases.Generadores import Generadores
+from BACK.Clases.Eventos import BRival,BJefe,Cofre,Curacion
+from BACK.Clases.Funciones.Calculadoras import raiz_digital
+from BACK.Clases.Funciones.Fabrica import crear_Jefe, crear_Rival
+from CONTROLADOR.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
-from Funciones.Interfaz import jefe_Derrotado,limpiar_Pantalla
+from FRONT.Interfaz import jefe_Derrotado,limpiar_Pantalla
 
 class Mapa:
     def __init__ (self,jugador):
