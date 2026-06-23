@@ -1,6 +1,6 @@
 from Configuracion import porcentajeCuracionVictoria
 from FRONT.Interfaz import limpiar_Pantalla
-from BACK.Clases.Magos import cantidadCurar
+
 
 def enfrentamiento(mago1,mago2,generador):
     limpiar_Pantalla()
@@ -61,6 +61,6 @@ def enfrentamiento(mago1,mago2,generador):
     if ganador == mago1:
         mago1.subir_Nivel()
         mago1.curar((mago1.get_hpMax() * porcentajeCuracionVictoria) // 100)
-        print(f"recupera {cantidadCurar}: vida {mago1._hpActual}/{mago1._hpMax}\n")
+        return mago1
         
     mago1.mostrar_Stats()

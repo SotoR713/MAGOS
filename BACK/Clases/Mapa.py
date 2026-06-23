@@ -101,7 +101,7 @@ class Mapa:
             jefe_Derrotado()
         elif evento == Curacion:
             self.get_jugador().curar(self.get_jugador().get_hpMax()*porcentajeCuracionEvento//100)
-            self._historial.append("→♥")
+            self._historial.append("→♥") 
         elif evento == Cofre:
             v1 = (self.get_generador().aleatorio() * self.get_generador().aleatorio() )// 713
             v1 = raiz_digital(v1)

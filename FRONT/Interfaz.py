@@ -3,6 +3,7 @@ from BACK.Clases.ValoracionCaracter import listaCaracteres
 from BACK.Clases.Jugador import Jugador
 from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
 import os
+from CONTROLADOR.Combate import *
 
 def titulo_Inicio():
 
@@ -77,3 +78,7 @@ def jefe_Derrotado():
 
 def limpiar_Pantalla():
     os.system("cls")
+
+
+def imprimir_Curacion(cantidadCurar,mago1,):
+     print(f"recupera {cantidadCurar}: vida {mago1._hpActual}/{mago1._hpMax}\n")    

@@ -66,4 +66,4 @@ class Mago:
         self._hpActual += cantidadCurar
         if self._hpActual > self._hpMax:
             self._hpActual = self._hpMax
-        return cantidadCurar,
+        return cantidadCurar
