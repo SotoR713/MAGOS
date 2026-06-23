@@ -1,7 +1,7 @@
 from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 from Clases.ValoracionCaracter import listaCaracteres
 from Clases.Jugador import Jugador
-from Configuracion import *
+from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
 
 def titulo_Inicio():
 

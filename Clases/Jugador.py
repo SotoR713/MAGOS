@@ -1,5 +1,5 @@
 from Clases.Magos import Mago
-from Configuracion import *
+from Configuracion import statsPorNivelJugador,maximoCriticoJugador,bonificacionCriticoJugador, maximaevasionJugador
 
 class Jugador(Mago):
 

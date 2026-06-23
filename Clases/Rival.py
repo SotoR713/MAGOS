@@ -1,6 +1,6 @@
 from Clases.Magos import Mago
 from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
-from Configuracion import *
+from Configuracion import statsPorNivelRival,porcentajeDañoCriticoRival,bonificacionCriticoRival,evasionRival
 
 class Rival(Mago):
 

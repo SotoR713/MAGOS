@@ -1,4 +1,4 @@
-from Configuracion import *
+from Configuracion import dañoMinimo,dañoFuerteElemental
 
 class Mago:
     def __init__ (self,ID,nombre,elemento,hpActual,hpMax,fuerza,armadura,velocidad,nivel):

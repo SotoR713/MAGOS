@@ -3,7 +3,7 @@ from Clases.Eventos import BRival,BJefe,Cofre,Curacion
 from Funciones.Calculadoras import raiz_digital
 from Funciones.Fabrica import crear_Jefe, crear_Rival
 from Funciones.Combate import enfrentamiento
-from Configuracion import *
+from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
 
 class Mapa:
     def __init__ (self,jugador):

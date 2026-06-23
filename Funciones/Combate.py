@@ -1,4 +1,4 @@
-from Configuracion import *
+from Configuracion import porcentajeCuracionVictoria
 
 def enfrentamiento(mago1,mago2,generador):
     turno = 1
@@ -19,27 +19,27 @@ def enfrentamiento(mago1,mago2,generador):
     while primero.get_hpActual() > 0 and segundo.get_hpActual() > 0:
         print(f"turno {turno}")
         daño = primero.calcular_Daño(segundo)
-        v1=daño
+        dañoOriginal=daño
         daño = (primero.calcular_Critico(segundo,generador.aleatorio(),daño))*(segundo.evasion(primero,generador.aleatorio()))
-        v2 = daño
-        v3 = v2-v1
+        dañoCritico = daño
+        diferenciaValores = dañoCritico-dañoOriginal
         segundo.recibir_Daño(daño)
-        if v3 > 0:
+        if diferenciaValores > 0:
             print("¡¡¡CRITICO!!!")
-        elif v3<0:
+        elif diferenciaValores<0:
             print(f"El Mago {primero.get_nombre()} ataco, pero {segundo.get_nombre()} esquivo el ataque")
         else:
             print(f"el mago {primero.get_nombre()} ataco y causo {daño} a mago {segundo.get_nombre()}")
         daño = segundo.calcular_Daño(primero)
-        v1=daño
+        dañoOriginal=daño
         daño = (segundo.calcular_Critico(primero,generador.aleatorio(),daño))*(primero.evasion(segundo,generador.aleatorio()))
-        v2=daño
-        v3=v2-v1
+        dañoCritico=daño
+        diferenciaValores=dañoCritico-dañoOriginal
         if segundo.get_hpActual() > 0:
             primero.recibir_Daño(daño)
-            if v3 > 0:
+            if diferenciaValores > 0:
                 print("¡¡¡CRITICO!!!")
-            elif v3<0:
+            elif diferenciaValores<0:
                 print(f"El Mago {segundo.get_nombre()} ataco, pero {primero.get_nombre()} esquivo el ataque")            
             else:
                 print(f"el mago {segundo.get_nombre()} ataco y causo {daño} a mago {primero.get_nombre()}")
@@ -57,7 +57,7 @@ def enfrentamiento(mago1,mago2,generador):
     
     if ganador == mago1:
         mago1.subir_Nivel()
-        mago1.curar((mago1.get_hpMax() * porcentajeCuracionVictoria) // 10)
+        mago1.curar((mago1.get_hpMax() * porcentajeCuracionVictoria) // 100)
     
         
     mago1.mostrar_Stats()
