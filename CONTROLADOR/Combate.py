@@ -1,6 +1,6 @@
 from Configuracion import porcentajeCuracionVictoria
 from FRONT.InterfazPantalla import mostrar_Stats
-from FRONT.InterfazBatalla import imprimir_Curacion,imprimir_IniciarBatalla,imprimir_Final_Turno,imprimir_Turno
+from FRONT.InterfazBatalla import imprimir_Curacion,imprimir_IniciarBatalla,imprimir_Final_Turno,imprimir_Turno,imprimir_Resultado,imprimir_Resumen_Turno
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 from CONTROLADOR.Repartir import calculo_Repartir_Stats
 
@@ -28,37 +28,20 @@ def enfrentamiento(mago1,mago2,generador):
         dañoCritico = daño
         diferenciaValores = dañoCritico-dañoOriginal
         segundo.recibir_Daño(daño)
-        if diferenciaValores > 0:
-            print("¡¡¡CRITICO!!!")
-        elif diferenciaValores<0:
-            print(f"El Mago {primero.get_nombre()} ataco, pero {segundo.get_nombre()} esquivo el ataque")
-        else:
-            print(f"el mago {primero.get_nombre()} ataco y causo {daño} a mago {segundo.get_nombre()}")
+        imprimir_Resumen_Turno(primero,segundo,daño,diferenciaValores)
         daño = segundo.calcular_Daño(primero)
         dañoOriginal=daño
         daño = (segundo.calcular_Critico(primero,generador.aleatorio(),daño))*(primero.evasion(segundo,generador.aleatorio()))
         dañoCritico=daño
         diferenciaValores=dañoCritico-dañoOriginal
-        if segundo.get_hpActual() > 0:
-            primero.recibir_Daño(daño)
-            if diferenciaValores > 0:
-                print("¡¡¡CRITICO!!!")
-            elif diferenciaValores<0:
-                print(f"El Mago {segundo.get_nombre()} ataco, pero {primero.get_nombre()} esquivo el ataque")            
-            else:
-                print(f"el mago {segundo.get_nombre()} ataco y causo {daño} a mago {primero.get_nombre()}")
+        imprimir_Resumen_Turno(segundo,primero,daño,diferenciaValores)
 
         imprimir_Final_Turno(mago1,mago2)
         
         imprimir_Pausas()
         turno += 1
 
-    if primero.get_hpActual() > segundo.get_hpActual():
-        print(f"EL Mago {primero.get_nombre()} derroto a {segundo.get_nombre()}")
-        ganador = primero
-    else:
-        print(f"EL Mago {segundo.get_nombre()} derroto a {primero.get_nombre()}")
-        ganador = segundo
+    ganador = imprimir_Resultado(primero,segundo)
     
     if ganador == mago1:
         mago1.subir_Nivel()

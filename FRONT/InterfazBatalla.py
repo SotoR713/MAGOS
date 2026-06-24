@@ -20,3 +20,25 @@ def imprimir_Final_Turno(mago1,mago2):
 
 def imprimir_Turno(turno):
      print(f"=============== ⚔  TURNO: {turno}  ⚔ ===============")
+
+
+
+def imprimir_Resultado(primero,segundo):
+     if primero.get_hpActual() > segundo.get_hpActual():
+        print(f"EL Mago {primero.get_nombre()} derroto a {segundo.get_nombre()}")
+        ganador = primero
+     else:
+        print(f"EL Mago {segundo.get_nombre()} derroto a {primero.get_nombre()}")
+        ganador = segundo
+     return ganador
+
+
+def imprimir_Resumen_Turno(mago1,mago2,daño,diferenciaValores):
+        if mago2.get_hpActual() > 0:
+            mago1.recibir_Daño(daño)
+            if diferenciaValores > 0:
+                print("¡¡¡CRITICO!!!")
+            elif diferenciaValores<0:
+                print(f"El Mago {mago2.get_nombre()} ataco, pero {mago1.get_nombre()} esquivo el ataque")            
+            else:
+                print(f"el mago {mago2.get_nombre()} ataco y causo {daño} a mago {mago1.get_nombre()}")
