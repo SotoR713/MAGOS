@@ -1,11 +1,12 @@
 from Configuracion import porcentajeCuracionVictoria
 from FRONT.InterfazPantalla import mostrar_Stats
-from FRONT.InterfazBatalla import imprimir_Curacion,imprimir_IniciarBatalla
+from FRONT.InterfazBatalla import imprimir_Curacion,imprimir_IniciarBatalla,imprimir_Final_Turno,imprimir_Turno
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 from CONTROLADOR.Repartir import calculo_Repartir_Stats
 
 def enfrentamiento(mago1,mago2,generador):
     limpiar_Pantalla()
+    
     turno = 1
 
     imprimir_IniciarBatalla(mago1,mago2)
@@ -20,7 +21,7 @@ def enfrentamiento(mago1,mago2,generador):
         segundo = mago1
          
     while primero.get_hpActual() > 0 and segundo.get_hpActual() > 0:
-        print(f"turno {turno}")
+        imprimir_Turno(turno)
         daño = primero.calcular_Daño(segundo)
         dañoOriginal=daño
         daño = (primero.calcular_Critico(segundo,generador.aleatorio(),daño))*(segundo.evasion(primero,generador.aleatorio()))
@@ -46,8 +47,9 @@ def enfrentamiento(mago1,mago2,generador):
                 print(f"El Mago {segundo.get_nombre()} ataco, pero {primero.get_nombre()} esquivo el ataque")            
             else:
                 print(f"el mago {segundo.get_nombre()} ataco y causo {daño} a mago {primero.get_nombre()}")
-        print(f"{mago1.get_nombre()}: {mago1.get_hpActual()}/{mago1.get_hpMax()}           |      {mago2.get_nombre()}: {mago2.get_hpActual()}/{mago2.get_hpMax()}")
-        print(f"{"▓"*mago1.get_hpActual()}{"░"* (mago1.get_hpMax()-mago1.get_hpActual())}   |   {"░"* (mago2.get_hpMax()-mago2.get_hpActual())}{"▓"*mago2.get_hpActual()}")
+
+        imprimir_Final_Turno(mago1,mago2)
+        
         imprimir_Pausas()
         turno += 1
 
@@ -64,5 +66,4 @@ def enfrentamiento(mago1,mago2,generador):
         mostrar_Stats(mago1)
         vidaCurada = mago1.curar((mago1.get_hpMax() * porcentajeCuracionVictoria) // 100)
         imprimir_Curacion(vidaCurada,mago1)
-        
         mostrar_Stats(mago1)
