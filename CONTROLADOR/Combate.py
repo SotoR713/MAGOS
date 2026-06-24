@@ -1,18 +1,16 @@
 from Configuracion import porcentajeCuracionVictoria
 from FRONT.InterfazPantalla import mostrar_Stats
-from FRONT.InterfazBatalla import imprimir_Curacion
+from FRONT.InterfazBatalla import imprimir_Curacion,imprimir_IniciarBatalla
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 from CONTROLADOR.Repartir import calculo_Repartir_Stats
 
 def enfrentamiento(mago1,mago2,generador):
     limpiar_Pantalla()
     turno = 1
-    print("=============== ⚔  COMBATE  ⚔ ===============")
-    mostrar_Stats(mago1)
-    print("--------------------- VS ---------------------")
-    mostrar_Stats(mago2)
-    print("----------------------------------------------")
+
+    imprimir_IniciarBatalla(mago1,mago2)
     imprimir_Pausas()
+    
 
     if mago1.get_velocidad() > mago2.get_velocidad():
         primero = mago1
