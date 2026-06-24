@@ -49,7 +49,7 @@ def enfrentamiento(mago1,mago2,generador):
                 print(f"el mago {segundo.get_nombre()} ataco y causo {daño} a mago {primero.get_nombre()}")
         print(f"{mago1.get_nombre()}: {mago1.get_hpActual()}/{mago1.get_hpMax()}           |      {mago2.get_nombre()}: {mago2.get_hpActual()}/{mago2.get_hpMax()}")
         print(f"{"▓"*mago1.get_hpActual()}{"░"* (mago1.get_hpMax()-mago1.get_hpActual())}   |   {"░"* (mago2.get_hpMax()-mago2.get_hpActual())}{"▓"*mago2.get_hpActual()}")
-        input()
+        imprimir_Pausas()
         turno += 1
 
     if primero.get_hpActual() > segundo.get_hpActual():

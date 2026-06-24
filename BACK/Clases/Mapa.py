@@ -5,7 +5,7 @@ from BACK.Funciones.Fabrica import crear_Jefe, crear_Rival
 from CONTROLADOR.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
 from FRONT.InterfazPantalla import jefe_Derrotado,mostrar_Stats
-from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel,imprimir_Camino
+from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel,imprimir_Camino,imprimir_Donde_Avanzar
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 
 class Mapa:
@@ -45,7 +45,7 @@ class Mapa:
         imprimir_Camino(self.get_caminoHistorico(),self.get_siguiente0().caracter,self.get_siguiente1().caracter)
 
         while eleccion != "0" and eleccion !="1":
-            eleccion = input(f"seleccione a donde avanzar:\n0-{self.get_siguiente0().nombre}\n1-{self.get_siguiente1().nombre}\n")
+            eleccion = imprimir_Donde_Avanzar(self.get_siguiente0().nombre,self.get_siguiente1().nombre)
                     
         self._camino.append(eleccion)
         self._posicion += 1   
