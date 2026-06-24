@@ -1,6 +1,6 @@
-from Clases.Rival import Rival, listaRivales
-from Clases.Jefe import listaJefes, Jefe
-from Funciones.Calculadoras import crear_Elemento
+from BACK.Clases.Rival import Rival, listaRivales
+from BACK.Clases.Jefe import listaJefes, Jefe
+from BACK.Funciones.Calculadoras import crear_Elemento
 
 
 

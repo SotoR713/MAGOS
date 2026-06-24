@@ -1,4 +1,4 @@
-from Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
+from BACK.Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 
 def raiz_digital(numero):
     while numero >= 10:
