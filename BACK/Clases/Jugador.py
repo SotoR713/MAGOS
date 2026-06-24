@@ -6,7 +6,6 @@ class Jugador(Mago):
     def subir_Nivel(self):
         self._nivel += 1
         self.repartir_Stats()
-        self.mostrar_Stats()
 
     def repartir_Stats(self):
         puntos = statsPorNivelJugador

@@ -4,7 +4,7 @@ from BACK.Funciones.Calculadoras import raiz_digital
 from BACK.Funciones.Fabrica import crear_Jefe, crear_Rival
 from CONTROLADOR.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
-from FRONT.Interfaz import jefe_Derrotado,limpiar_Pantalla
+from FRONT.Interfaz import jefe_Derrotado,limpiar_Pantalla,mostrar_Stats
 
 class Mapa:
     def __init__ (self,jugador):
@@ -109,6 +109,7 @@ class Mapa:
             if v1 <= umbralSubir:
                 self.get_jugador().subir_Nivel()
                 print("Subiste Nivel")
+                mostrar_Stats(self.get_jugador)
                 self._historial.append("→[↑]")
             elif v1 <= umbralCuracion:
                 vidaCurar=self.get_jugador().get_hpMax()*porcentajeCuracionCofre//100
