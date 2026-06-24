@@ -1,6 +1,5 @@
 from BACK.Clases.Magos import Mago
-from Configuracion import statsPorNivelJugador,maximoCriticoJugador,bonificacionCriticoJugador, maximaevasionJugador
-from CONTROLADOR.Repartir import calculo_Repartir_Stats
+from Configuracion import maximoCriticoJugador,bonificacionCriticoJugador, maximaevasionJugador
 
 class Jugador(Mago):
 
@@ -8,11 +7,18 @@ class Jugador(Mago):
         self._nivel += 1
         self.repartir_Stats()
 
-    def repartir_Stats(self):
+    def repartir_Stats(self,eleccion):
         
-        puntos = statsPorNivelJugador
 
-        calculo_Repartir_Stats(self)
+
+        if eleccion == 1:
+            self._hpMax +=1
+        elif eleccion == 2:
+            self._fuerza +=1
+        elif eleccion == 3:
+            self._armadura +=1
+        elif eleccion == 4:
+            self._velocidad +=1    
 
 
     def calcular_Critico(self,rival,aleato,daño):

@@ -2,6 +2,7 @@ from BACK.Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 from BACK.Clases.ValoracionCaracter import listaCaracteres
 from BACK.Clases.Jugador import Jugador
 from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
+from InterfazVarios import imprimir_Mensaje_OpcionNoValida
 
 def titulo_Inicio():
 
@@ -93,10 +94,30 @@ def mostrar_Stats(mago):
 
 
 
-def imprimir_Repartir_Stats(esValor,puntos):
-    while esValor == False:
-        while eleccion <= 4 and eleccion > 0:
-            eleccion = input(f"tienes {puntos} puntos a repartir \n selecciona a que le quieres asignar el siguiente punto\n1-HP\n2-Fuerza\n3-Armadura\n4-Velocidad:\n")
-            esValor = eleccion.isdigit()
-    eleccion = int(eleccion)
+def imprimir_Repartir_Stats(puntos):
+    valido=False
+
+    while valido == False:
+            print(f"tienes {puntos} puntos a repartir")
+            print("selecciona a que le quieres asignar el siguiente punto:")
+            print("1-HP")
+            print("2-Fuerza")
+            print("3-Armadura")
+            print("4-Velocidad")
+            eleccion=input()
+            if  eleccion.isdigit():
+                eleccion = int(eleccion)
+                if eleccion <=4 and eleccion>0:
+                    valido=True
+                else:
+                    imprimir_Mensaje_OpcionNoValida()
+            else:
+                imprimir_Mensaje_OpcionNoValida()
     return eleccion
+
+    # while esValor == False:
+            
+    #         while eleccion >= 4 or eleccion < 0:   
+    #             imprimir_Mensaje_OpcionNoValida()
+    #             eleccion=input()
+    # return eleccion
