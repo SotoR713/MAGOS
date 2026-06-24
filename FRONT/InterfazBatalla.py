@@ -34,8 +34,6 @@ def imprimir_Resultado(primero,segundo):
 
 
 def imprimir_Resumen_Turno(mago1,mago2,daño,diferenciaValores):
-        if mago2.get_hpActual() > 0:
-            mago1.recibir_Daño(daño)
             if diferenciaValores > 0:
                 print("¡¡¡CRITICO!!!")
             elif diferenciaValores<0:

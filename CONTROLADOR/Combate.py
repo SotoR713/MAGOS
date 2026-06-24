@@ -34,10 +34,10 @@ def enfrentamiento(mago1,mago2,generador):
         daño = (segundo.calcular_Critico(primero,generador.aleatorio(),daño))*(primero.evasion(segundo,generador.aleatorio()))
         dañoCritico=daño
         diferenciaValores=dañoCritico-dañoOriginal
-        imprimir_Resumen_Turno(segundo,primero,daño,diferenciaValores)
-
+        if primero.get_hpActual() > 0:
+            segundo.recibir_Daño(daño)
+            imprimir_Resumen_Turno(segundo,primero,daño,diferenciaValores)
         imprimir_Final_Turno(mago1,mago2)
-        
         imprimir_Pausas()
         turno += 1
 
