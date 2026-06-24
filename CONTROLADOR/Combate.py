@@ -3,6 +3,7 @@ from FRONT.InterfazPantalla import mostrar_Stats
 from FRONT.InterfazBatalla import imprimir_Curacion
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 
+
 def enfrentamiento(mago1,mago2,generador):
     limpiar_Pantalla()
     turno = 1

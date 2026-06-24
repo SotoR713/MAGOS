@@ -2,7 +2,7 @@ from BACK.Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 from BACK.Clases.ValoracionCaracter import listaCaracteres
 from BACK.Clases.Jugador import Jugador
 from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
-from InterfazVarios import imprimir_Mensaje_OpcionNoValida
+from FRONT.InterfazVarios import imprimir_Mensaje_OpcionNoValida
 
 def titulo_Inicio():
 
@@ -114,10 +114,3 @@ def imprimir_Repartir_Stats(puntos):
             else:
                 imprimir_Mensaje_OpcionNoValida()
     return eleccion
-
-    # while esValor == False:
-            
-    #         while eleccion >= 4 or eleccion < 0:   
-    #             imprimir_Mensaje_OpcionNoValida()
-    #             eleccion=input()
-    # return eleccion

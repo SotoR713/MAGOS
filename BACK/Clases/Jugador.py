@@ -8,9 +8,7 @@ class Jugador(Mago):
         self.repartir_Stats()
 
     def repartir_Stats(self,eleccion):
-        
-
-
+    
         if eleccion == 1:
             self._hpMax +=1
         elif eleccion == 2:
