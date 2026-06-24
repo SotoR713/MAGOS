@@ -7,6 +7,7 @@ from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentaj
 from FRONT.InterfazPantalla import jefe_Derrotado,mostrar_Stats
 from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel,imprimir_Camino,imprimir_Donde_Avanzar
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
+from CONTROLADOR.Repartir import calculo_Repartir_Stats
 
 class Mapa:
     def __init__ (self,jugador):
@@ -109,7 +110,8 @@ class Mapa:
             v1 = raiz_digital(v1)
 
             if v1 <= umbralSubir:
-                self.get_jugador().subir_Nivel()                
+                self.get_jugador().subir_Nivel() 
+                calculo_Repartir_Stats(self.get_jugador())               
                 mostrar_Stats(self.get_jugador())
                 imprimir_Cofre_SubirNivel()
                 self._historial.append("→[↑]")
