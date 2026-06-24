@@ -1,6 +1,6 @@
 from BACK.Clases.Magos import Mago
 from Configuracion import statsPorNivelJugador,maximoCriticoJugador,bonificacionCriticoJugador, maximaevasionJugador
-from FRONT.Interfaz import imprimir_Mensaje_OpcionNoValida
+
 
 class Jugador(Mago):
 
@@ -30,7 +30,7 @@ class Jugador(Mago):
                 self._velocidad += 1
                 puntos -= 1
             else:
-                imprimir_Mensaje_OpcionNoValida()
+                print("Estadistica no existe")
 
 
     def calcular_Critico(self,rival,aleato,daño):
