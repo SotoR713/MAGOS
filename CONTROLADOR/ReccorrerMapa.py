@@ -4,7 +4,8 @@ from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 
 def avanzar(senda):
     eleccion = ""
-   
+    imprimir_Pausas()
+    limpiar_Pantalla()
     imprimir_Camino(senda.get_caminoHistorico(),senda.get_siguiente0().caracter,senda.get_siguiente1().caracter)
     eleccion = imprimir_Donde_Avanzar(eleccion,senda.get_siguiente0().nombre,senda.get_siguiente1().nombre)              
 
