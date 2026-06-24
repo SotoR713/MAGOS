@@ -35,7 +35,7 @@ def enfrentamiento(mago1,mago2,generador):
         dañoCritico=daño
         diferenciaValores=dañoCritico-dañoOriginal
         if primero.get_hpActual() > 0:
-            segundo.recibir_Daño(daño)
+            primero.recibir_Daño(daño)
             imprimir_Resumen_Turno(segundo,primero,daño,diferenciaValores)
         imprimir_Final_Turno(mago1,mago2)
         imprimir_Pausas()
