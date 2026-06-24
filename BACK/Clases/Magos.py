@@ -42,9 +42,7 @@ class Mago:
     def evasion(self,rival):
         raise NotImplementedError("funcion evasion no declarada")
     
-    def mostrar_Stats(self):
-        print(f"{self.get_nombre()} de {self.get_elemento().get_nombre()}:\nHP: {self.get_hpActual()}/{self.get_hpMax()}\nFuerza: {self.get_fuerza()}\nArmadura: {self.get_armadura()}\nVelocidad: {self.get_velocidad()}\nNivel: {self.get_nivel()}\n")
-
+    
     def calcular_Daño(self,objetivo):
         daño = self.get_fuerza() - objetivo.get_armadura()
         if daño < dañoMinimo:

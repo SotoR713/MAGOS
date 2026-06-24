@@ -64,7 +64,7 @@ def nombrar_Jugador():
 
     player1 = Jugador(idJugador,nombre_Usuario,elemento_Jugador,vidaJugador,vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador,0)
 
-    player1.mostrar_Stats()
+    mostrar_Stats(player1)
     print(f"Semilla: {idJugador}")
     return player1
 
@@ -81,3 +81,16 @@ def limpiar_Pantalla():
 
 def imprimir_Curacion(vidaCurada,mago1):
      print(f"recupera {vidaCurada}: vida {mago1.get_hpActual()}/{mago1.get_hpMax()}\n")
+
+def mostrar_Stats(mago):
+        print("")
+        print("-----------------------------------------------------------")
+        print(mago.get_nombre()," de ",mago.get_elemento().get_nombre(),":")
+        print("-----------------------------------------------------------")
+        print("Nivel: ",mago.get_nivel())
+        print("HP: ",mago.get_hpActual(),"/",mago.get_hpMax())
+        print("Fuerza: ",mago.get_fuerza())
+        print("Armadura: ",mago.get_armadura())
+        print("Velocidad: ",mago.get_velocidad())
+        print("-----------------------------------------------------------")
+        print("")

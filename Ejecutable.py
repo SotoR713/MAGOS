@@ -6,9 +6,8 @@ from FRONT.Interfaz import titulo_Final, titulo_Inicio, nombrar_Jugador,limpiar_
 bucle_Juego=0
 while bucle_Juego ==0:
     titulo_Inicio()     
-    player1 = nombrar_Jugador()
-   
-    mapa1 = Mapa(player1)
+    
+    mapa1 = Mapa(nombrar_Jugador())
     while mapa1.get_jugador().get_hpActual() >0:
         print(f"Posición: {mapa1.get_posicion()}")
         mapa1.resolver_Evento(mapa1.avanzar())
