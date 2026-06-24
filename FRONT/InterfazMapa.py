@@ -22,8 +22,10 @@ def imprimir_Camino(caminoHistorico,siguiente0,siguiente1):
     print(caminoHistorico)
     print(f" {" " * len(caminoHistorico)}{siguiente1}")
 
-def imprimir_Donde_Avanzar(siguiente0,siguiente1):
-    print(f"seleccione a donde avanzar:")
-    print(f"0-{siguiente0}")
-    print(f"1-{siguiente1}")
-    return input()
+def imprimir_Donde_Avanzar(eleccion,siguiente0,siguiente1):
+    while eleccion != "0" and eleccion !="1":
+        print(f"seleccione a donde avanzar:")
+        print(f"0-{siguiente0}")
+        print(f"1-{siguiente1}")
+        eleccion = input()
+    return eleccion

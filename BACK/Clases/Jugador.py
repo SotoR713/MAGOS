@@ -1,6 +1,6 @@
 from BACK.Clases.Magos import Mago
 from Configuracion import statsPorNivelJugador,maximoCriticoJugador,bonificacionCriticoJugador, maximaevasionJugador
-
+from FRONT.InterfazPantalla import imprimir_Repartir_Stats
 
 class Jugador(Mago):
 
@@ -12,10 +12,8 @@ class Jugador(Mago):
         puntos = statsPorNivelJugador
         while puntos > 0:
             esValor = False
-            while esValor == False:
-                eleccion = input(f"tienes {puntos} puntos a repartir \n selecciona a que le quieres asignar el siguiente punto\n1-HP\n2-Fuerza\n3-Armadura\n4-Velocidad:\n")
-                esValor = eleccion.isdigit()
-            eleccion = int(eleccion)
+          
+            eleccion = imprimir_Repartir_Stats(esValor,puntos)
 
             if eleccion == 1:
                 self._hpMax += 1

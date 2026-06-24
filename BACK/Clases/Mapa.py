@@ -44,8 +44,7 @@ class Mapa:
 
         imprimir_Camino(self.get_caminoHistorico(),self.get_siguiente0().caracter,self.get_siguiente1().caracter)
 
-        while eleccion != "0" and eleccion !="1":
-            eleccion = imprimir_Donde_Avanzar(self.get_siguiente0().nombre,self.get_siguiente1().nombre)
+        eleccion = imprimir_Donde_Avanzar(eleccion,self.get_siguiente0().nombre,self.get_siguiente1().nombre)
                     
         self._camino.append(eleccion)
         self._posicion += 1   
