@@ -1,13 +1,14 @@
 from BACK.Clases.Generadores import Generadores
 from BACK.Clases.Eventos import BRival,BJefe,Cofre,Curacion
 from BACK.Funciones.Calculadoras import raiz_digital
-from BACK.Funciones.Fabrica import crear_Jefe, crear_Rival
-from CONTROLADOR.Combate import enfrentamiento
+from BACK.Funciones.Fabrica import crear_Rival,crear_Jefe
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
+from CONTROLADOR.Combate import enfrentamiento,calculo_Repartir_Stats
+from CONTROLADOR.ReccorrerMapa import avanzar
 from FRONT.InterfazPantalla import jefe_Derrotado,mostrar_Stats
 from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel,imprimir_Camino,imprimir_Donde_Avanzar
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
-from CONTROLADOR.Repartir import calculo_Repartir_Stats
+
 
 class Mapa:
     def __init__ (self,jugador):
@@ -35,25 +36,7 @@ class Mapa:
     def get_caminoHistorico(self):
         return self._caminoHistorico
         
-    def avanzar(self):
-        imprimir_Pausas()
-        limpiar_Pantalla()
-        eleccion = ""
-        self._caminoHistorico=""
-        for i in self._historial:
-            self._caminoHistorico += i
 
-        imprimir_Camino(self.get_caminoHistorico(),self.get_siguiente0().caracter,self.get_siguiente1().caracter)
-
-        eleccion = imprimir_Donde_Avanzar(eleccion,self.get_siguiente0().nombre,self.get_siguiente1().nombre)
-                    
-        self._camino.append(eleccion)
-        self._posicion += 1   
-
-        if eleccion == "0":
-            return self.get_siguiente0()
-        elif eleccion == "1":
-            return   self.get_siguiente1()
 
     def validar_vs_Jefe(self):
         if (len(self._camino)) % posicionesJefe == 0:
