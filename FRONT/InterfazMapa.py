@@ -14,3 +14,10 @@ def imprimir_Cofre_Batalla():
 
 def imprimir_Cofre_Daño(vidaDaño):
                 print(f"Has perdido {vidaDaño}")
+
+
+def imprimir_Camino(caminoHIstorico,siguiente0,siguiente1):
+        
+    print(f" {" " * len(caminoHIstorico)} {siguiente0}")
+    print(caminoHIstorico)
+    print(f" {" " * len(caminoHIstorico)}{siguiente1}")

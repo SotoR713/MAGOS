@@ -5,7 +5,7 @@ from BACK.Funciones.Fabrica import crear_Jefe, crear_Rival
 from CONTROLADOR.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
 from FRONT.InterfazPantalla import jefe_Derrotado,mostrar_Stats
-from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel
+from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel,imprimir_Camino
 from FRONT.InterfazVarios import limpiar_Pantalla
 
 class Mapa:
@@ -31,7 +31,8 @@ class Mapa:
         return self._siguiente0
     def get_siguiente1(self):
         return self._siguiente1
-    
+    def get_caminoHistorico(self):
+        return self._caminoHistorico
         
     def avanzar(self):
         input("presion ENTER para continuar")
@@ -40,9 +41,9 @@ class Mapa:
         self._caminoHistorico=""
         for i in self._historial:
             self._caminoHistorico += i
-        print(f" {" " * len(self._caminoHistorico)}{self.get_siguiente0().caracter}")
-        print(self._caminoHistorico)
-        print(f" {" " * len(self._caminoHistorico)}{self.get_siguiente1().caracter}")
+
+        imprimir_Camino(self.get_caminoHistorico(),self.get_siguiente0().caracter,self.get_siguiente1().caracter)
+
         while eleccion != "0" and eleccion !="1":
             eleccion = input(f"seleccione a donde avanzar:\n0-{self.get_siguiente0().nombre}\n1-{self.get_siguiente1().nombre}\n")
                     
