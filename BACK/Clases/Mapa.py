@@ -36,6 +36,16 @@ class Mapa:
     def get_caminoHistorico(self):
         return self._caminoHistorico
         
+    def camino(self):
+        imprimir_Pausas()
+        limpiar_Pantalla()
+        
+        self.get_caminoHistorico()=""
+        for i in self._historial():
+            self._caminoHistorico() += i
+
+        self._camino.append(avanzar(self))
+        self._posicion += 1   
 
 
     def validar_vs_Jefe(self):
