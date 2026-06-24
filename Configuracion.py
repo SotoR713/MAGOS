@@ -22,7 +22,7 @@ dañoFuerteElemental = 50
 
 porcentajeCuracionCofre = 30
 porcentajeCuracionEvento = 40
-porcentajeCuracionVictoria= 30
+porcentajeCuracionVictoria = 30
 
 porcentajeDañoCofre = 10
 
