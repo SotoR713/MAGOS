@@ -1,6 +1,6 @@
 from BACK.Clases.Magos import Mago
 from Configuracion import statsPorNivelJugador,maximoCriticoJugador,bonificacionCriticoJugador, maximaevasionJugador
-from FRONT.InterfazPantalla import imprimir_Repartir_Stats
+from CONTROLADOR.Repartir import calculo_Repartir_Stats
 
 class Jugador(Mago):
 
@@ -9,26 +9,10 @@ class Jugador(Mago):
         self.repartir_Stats()
 
     def repartir_Stats(self):
+        
         puntos = statsPorNivelJugador
-        while puntos > 0:
-            esValor = False
-          
-            eleccion = imprimir_Repartir_Stats(esValor,puntos)
 
-            if eleccion == 1:
-                self._hpMax += 1
-                puntos -= 1
-            elif eleccion == 2:
-                self._fuerza += 1
-                puntos -= 1
-            elif eleccion == 3:
-                self._armadura += 1
-                puntos -= 1
-            elif eleccion == 4:
-                self._velocidad += 1
-                puntos -= 1
-            else:
-                print("Estadistica no existe")
+        calculo_Repartir_Stats(self)
 
 
     def calcular_Critico(self,rival,aleato,daño):

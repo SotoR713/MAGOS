@@ -93,9 +93,10 @@ def mostrar_Stats(mago):
 
 
 
-def imprimir_Repartir_Stats(esValor,eleccion,puntos):
+def imprimir_Repartir_Stats(esValor,puntos):
     while esValor == False:
-        eleccion = input(f"tienes {puntos} puntos a repartir \n selecciona a que le quieres asignar el siguiente punto\n1-HP\n2-Fuerza\n3-Armadura\n4-Velocidad:\n")
-        esValor = eleccion.isdigit()
+        while eleccion <= 4 and eleccion > 0:
+            eleccion = input(f"tienes {puntos} puntos a repartir \n selecciona a que le quieres asignar el siguiente punto\n1-HP\n2-Fuerza\n3-Armadura\n4-Velocidad:\n")
+            esValor = eleccion.isdigit()
     eleccion = int(eleccion)
     return eleccion
