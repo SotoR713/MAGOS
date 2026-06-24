@@ -1,7 +1,6 @@
 from BACK.Clases.Mapa import Mapa
-from FRONT.Interfaz import titulo_Final, titulo_Inicio, nombrar_Jugador,limpiar_Pantalla
-
-
+from FRONT.InterfazPantalla import titulo_Final, titulo_Inicio, nombrar_Jugador
+from FRONT.InterfazVarios import limpiar_Pantalla
 
 bucle_Juego=0
 while bucle_Juego ==0:

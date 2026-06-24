@@ -2,7 +2,6 @@ from BACK.Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 from BACK.Clases.ValoracionCaracter import listaCaracteres
 from BACK.Clases.Jugador import Jugador
 from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
-import os
 
 def titulo_Inicio():
 
@@ -75,12 +74,9 @@ def jefe_Derrotado():
     print(r"|  |  |   __|   __|   __|  |  |  |   __| | | |   --|-   -|  |  |  |  |")
     print(r"|_____|_____|__|  |_____|   \___/|_____|_|___|_____|_____|____/|_____|")
 
-def limpiar_Pantalla():
-    os.system("cls")
 
 
-def imprimir_Curacion(vidaCurada,mago1):
-     print(f"recupera {vidaCurada}: vida {mago1.get_hpActual()}/{mago1.get_hpMax()}\n")
+
 
 def mostrar_Stats(mago):
         print("")
@@ -96,18 +92,4 @@ def mostrar_Stats(mago):
         print("")
 
 
-def imprimir_Cofre_SubirNivel():
-                print("Subiste Nivel")
-     
-def imprimir_Cofre_Curacion(vidaCurar):
-                print(f"Recuperaste {vidaCurar} de vida")
 
-def imprimir_Cofre_Batalla():
-                print("--BATALLA--")
-
-def imprimir_Cofre_Daño(vidaDaño):
-                print(f"Has perdido {vidaDaño}")
-
-
-def imprimir_Mensaje_OpcionNoValida():
-      print("La opcion seleccionada no es valida, favor de volver a intentar con otra opcion")

@@ -1,5 +1,7 @@
 from Configuracion import porcentajeCuracionVictoria
-from FRONT.Interfaz import limpiar_Pantalla,imprimir_Curacion,mostrar_Stats
+from FRONT.InterfazPantalla import mostrar_Stats
+from FRONT.InterfazBatalla import imprimir_Curacion
+from FRONT.InterfazVarios import limpiar_Pantalla
 
 def enfrentamiento(mago1,mago2,generador):
     limpiar_Pantalla()

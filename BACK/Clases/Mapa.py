@@ -4,7 +4,9 @@ from BACK.Funciones.Calculadoras import raiz_digital
 from BACK.Funciones.Fabrica import crear_Jefe, crear_Rival
 from CONTROLADOR.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
-from FRONT.Interfaz import jefe_Derrotado,limpiar_Pantalla,mostrar_Stats,imprimir_Cofre_Batalla,imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel
+from FRONT.InterfazPantalla import jefe_Derrotado,mostrar_Stats
+from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel
+from FRONT.InterfazVarios import limpiar_Pantalla
 
 class Mapa:
     def __init__ (self,jugador):
