@@ -4,7 +4,7 @@ from BACK.Funciones.Calculadoras import raiz_digital
 from BACK.Funciones.Fabrica import crear_Jefe, crear_Rival
 from CONTROLADOR.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
-from FRONT.Interfaz import jefe_Derrotado,limpiar_Pantalla,mostrar_Stats
+from FRONT.Interfaz import jefe_Derrotado,limpiar_Pantalla,mostrar_Stats,imprimir_Cofre_Batalla,imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel
 
 class Mapa:
     def __init__ (self,jugador):
@@ -107,21 +107,21 @@ class Mapa:
             v1 = raiz_digital(v1)
 
             if v1 <= umbralSubir:
-                self.get_jugador().subir_Nivel()
-                print("Subiste Nivel")
-                mostrar_Stats(self.get_jugador)
+                self.get_jugador().subir_Nivel()                
+                mostrar_Stats(self.get_jugador())
+                imprimir_Cofre_SubirNivel()
                 self._historial.append("→[↑]")
             elif v1 <= umbralCuracion:
                 vidaCurar=self.get_jugador().get_hpMax()*porcentajeCuracionCofre//100
                 self.get_jugador().curar(vidaCurar)
-                print(f"Recuperaste {vidaCurar} de vida")
+                imprimir_Cofre_Curacion(vidaCurar)
                 self._historial.append("→[♥]")
             elif v1 <= umbralBatalla:
                 self._historial.append("[")
                 self.resolver_Evento(BRival)
-                print("BATALLA")
+                imprimir_Cofre_Batalla()
             else:
                 vidaDaño=self.get_jugador().get_hpMax()*porcentajeDañoCofre//100
                 self.get_jugador().recibir_Daño(vidaDaño)
-                print(f"Has perdido {vidaDaño}")
+                imprimir_Cofre_Daño(vidaDaño)
                 self._historial.append("→[↓]")

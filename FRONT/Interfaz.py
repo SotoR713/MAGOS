@@ -94,3 +94,20 @@ def mostrar_Stats(mago):
         print("║","Velocidad: ",mago.get_velocidad())
         print("╚══════════════╝")
         print("")
+
+
+def imprimir_Cofre_SubirNivel():
+                print("Subiste Nivel")
+     
+def imprimir_Cofre_Curacion(vidaCurar):
+                print(f"Recuperaste {vidaCurar} de vida")
+
+def imprimir_Cofre_Batalla():
+                print("--BATALLA--")
+
+def imprimir_Cofre_Daño(vidaDaño):
+                print(f"Has perdido {vidaDaño}")
+
+
+def imprimir_Mensaje_OpcionNoValida():
+      print("La opcion seleccionada no es valida, favor de volver a intentar con otra opcion")
