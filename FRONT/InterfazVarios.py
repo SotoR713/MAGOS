@@ -6,4 +6,7 @@ def imprimir_Mensaje_OpcionNoValida():
 
 
 def limpiar_Pantalla():
-    os.system("cls")
+      os.system("cls")
+
+def imprimir_Pausas():
+      input("---PRESIONE ENTER PARA CONTINUAR---")

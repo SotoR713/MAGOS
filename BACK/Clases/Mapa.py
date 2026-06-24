@@ -6,7 +6,7 @@ from CONTROLADOR.Combate import enfrentamiento
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
 from FRONT.InterfazPantalla import jefe_Derrotado,mostrar_Stats
 from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel,imprimir_Camino
-from FRONT.InterfazVarios import limpiar_Pantalla
+from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 
 class Mapa:
     def __init__ (self,jugador):
@@ -35,7 +35,7 @@ class Mapa:
         return self._caminoHistorico
         
     def avanzar(self):
-        input("presion ENTER para continuar")
+        imprimir_Pausas()
         limpiar_Pantalla()
         eleccion = ""
         self._caminoHistorico=""

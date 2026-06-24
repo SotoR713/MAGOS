@@ -1,7 +1,7 @@
 from Configuracion import porcentajeCuracionVictoria
 from FRONT.InterfazPantalla import mostrar_Stats
 from FRONT.InterfazBatalla import imprimir_Curacion
-from FRONT.InterfazVarios import limpiar_Pantalla
+from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
 
 def enfrentamiento(mago1,mago2,generador):
     limpiar_Pantalla()
@@ -11,7 +11,7 @@ def enfrentamiento(mago1,mago2,generador):
     print("--------------------- VS ---------------------")
     mostrar_Stats(mago2)
     print("----------------------------------------------")
-    input("Presione ENTER para iniciar")
+    imprimir_Pausas()
 
     if mago1.get_velocidad() > mago2.get_velocidad():
         primero = mago1
