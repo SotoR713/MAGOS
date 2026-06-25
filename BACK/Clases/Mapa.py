@@ -43,6 +43,13 @@ class Mapa:
         for i in self._historial:
             self._caminoHistorico += i
 
+        eleccion=avanar(self)
+
+        if eleccion == "0":
+            return self.get_siguiente0()
+        elif eleccion == "1":
+            return   senda.get_siguiente1()
+
         self._camino.append(avanzar(self))
         self._posicion += 1   
 

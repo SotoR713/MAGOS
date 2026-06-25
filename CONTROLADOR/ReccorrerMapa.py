@@ -9,9 +9,5 @@ def avanzar(senda):
     imprimir_Camino(senda.get_caminoHistorico(),senda.get_siguiente0().caracter,senda.get_siguiente1().caracter)
     eleccion = imprimir_Donde_Avanzar(eleccion,senda.get_siguiente0().nombre,senda.get_siguiente1().nombre)              
 
-    if eleccion == "0":
-        return senda.get_siguiente0()
-    elif eleccion == "1":
-        return   senda.get_siguiente1()
-
+    return eleccion
 
