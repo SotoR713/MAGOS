@@ -28,8 +28,7 @@ class Mapa:
     def get_siguiente1(self):
         return self._siguiente1
     def get_caminoHistorico(self):
-        return self._caminoHistorico
-        
+        return self._caminoHistorico        
 
 
     def registrar_Avance(self, eleccion):
@@ -38,7 +37,6 @@ class Mapa:
         self._caminoHistorico = ""
         for i in self._historial:
             self._caminoHistorico += i
-
 
     def validar_vs_Jefe(self):
         if (len(self._camino)) % posicionesJefe == 0:

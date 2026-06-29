@@ -1,7 +1,7 @@
 from BACK.Clases.Mapa import Mapa
 from FRONT.InterfazPantalla import titulo_Final, titulo_Inicio, nombrar_Jugador
 from FRONT.InterfazVarios import limpiar_Pantalla
-from CONTROLADOR.ReccorrerMapa import avanzar
+from CONTROLADOR.ReccorrerMapa import avanzar, resolver_Evento
 
 bucle_Juego=0
 while bucle_Juego ==0:
@@ -10,7 +10,7 @@ while bucle_Juego ==0:
     mapa1 = Mapa(nombrar_Jugador())
     while mapa1.get_jugador().get_hpActual() >0:
         evento = avanzar(mapa1)       
-        mapa1.resolver_Evento(mapa1,evento)
+        resolver_Evento(mapa1,evento)
         mapa1.generar_Siguientes()
     print("senda: ",mapa1._caminoHistorico)
     print("Has llegado hasta la posicion:",mapa1.get_posicion())
