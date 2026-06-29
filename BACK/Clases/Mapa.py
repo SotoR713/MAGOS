@@ -4,7 +4,6 @@ from BACK.Funciones.Calculadoras import raiz_digital
 from BACK.Funciones.Fabrica import crear_Rival,crear_Jefe
 from Configuracion import posicionesJefe,siguienteRival,siguienteCofre,porcentajeCuracionCofre,porcentajeCuracionEvento,umbralBatalla,umbralCuracion,umbralSubir,porcentajeDañoCofre
 from CONTROLADOR.Combate import enfrentamiento,calculo_Repartir_Stats
-from CONTROLADOR.ReccorrerMapa import avanzar
 from FRONT.InterfazPantalla import jefe_Derrotado,mostrar_Stats
 from FRONT.InterfazMapa import imprimir_Cofre_Batalla, imprimir_Cofre_Curacion,imprimir_Cofre_Daño,imprimir_Cofre_SubirNivel,imprimir_Camino,imprimir_Donde_Avanzar
 from FRONT.InterfazVarios import limpiar_Pantalla,imprimir_Pausas
@@ -36,22 +35,14 @@ class Mapa:
     def get_caminoHistorico(self):
         return self._caminoHistorico
         
-    def camino(self):
 
-        
-        self._caminoHistorico=""
+
+    def registrar_Avance(self, eleccion):
+        self._camino.append(eleccion)
+        self._posicion += 1
+        self._caminoHistorico = ""
         for i in self._historial:
             self._caminoHistorico += i
-
-        eleccion=avanar(self)
-
-        if eleccion == "0":
-            return self.get_siguiente0()
-        elif eleccion == "1":
-            return   senda.get_siguiente1()
-
-        self._camino.append(avanzar(self))
-        self._posicion += 1   
 
 
     def validar_vs_Jefe(self):
