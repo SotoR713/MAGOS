@@ -53,7 +53,7 @@ def resolver_Evento(senda, evento):
             senda._historial.append("→[♥]")
         elif v1 <= umbralBatalla:
             senda._historial.append("[")
-            senda.resolver_Evento(BRival)
+            resolver_Evento(senda,BRival)
             imprimir_Cofre_Batalla()
         else:
             vidaDaño=senda.get_jugador().get_hpMax()*porcentajeDañoCofre//100
