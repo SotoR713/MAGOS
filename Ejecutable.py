@@ -1,5 +1,5 @@
 from BACK.Clases.Mapa import Mapa
-from FRONT.InterfazPantalla import titulo_Final, titulo_Inicio, nombrar_Jugador
+from FRONT.InterfazPantalla import finalizar_juego, titulo_Final, titulo_Inicio, nombrar_Jugador
 from FRONT.InterfazVarios import limpiar_Pantalla
 from CONTROLADOR.ReccorrerMapa import avanzar, resolver_Evento
 
@@ -12,10 +12,5 @@ while bucle_Juego ==0:
         evento = avanzar(mapa1)       
         resolver_Evento(mapa1,evento)
         mapa1.generar_Siguientes()
-    print("senda: ",mapa1._caminoHistorico)
-    print("Has llegado hasta la posicion:",mapa1.get_posicion())
-    print("")
-    titulo_Final()
-    print("")
-    input("presion ENTER para reiniciar")
-    limpiar_Pantalla()
+    finalizar_juego(mapa1)
+   

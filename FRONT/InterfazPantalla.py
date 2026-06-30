@@ -1,8 +1,10 @@
+import nt
+
 from BACK.Clases.Elementos import Agua,Fuego,Planta,Tierra,Neutral
 from BACK.Clases.ValoracionCaracter import listaCaracteres
 from BACK.Clases.Jugador import Jugador
 from Configuracion import vidaJugador,fuerzaJugador,armaduraJugador,velocidadJugador
-from FRONT.InterfazVarios import imprimir_Mensaje_OpcionNoValida
+from FRONT.InterfazVarios import imprimir_Mensaje_OpcionNoValida, limpiar_Pantalla
 
 def titulo_Inicio():
 
@@ -114,3 +116,12 @@ def imprimir_Repartir_Stats(puntos):
             else:
                 imprimir_Mensaje_OpcionNoValida()
     return eleccion
+
+def finalizar_juego(mapa1):
+    print("senda: ",mapa1._caminoHistorico)
+    print("Has llegado hasta la posicion:",mapa1.get_posicion())
+    print("")
+    titulo_Final()
+    print("")
+    input("presion ENTER para reiniciar")
+    limpiar_Pantalla()
