@@ -23,19 +23,15 @@ def resolver_Evento(senda, evento):
     if evento == BRival:
         Brival = crear_Rival(senda.get_generador().aleatorio(), len(senda.get_camino()))
         enfrentamiento(senda.get_jugador(), Brival,senda.get_generador())
-        largo=len(senda._historial)-1
-        if senda._historial[largo] == "[":
-            senda._historial[largo]="→[⚔]"
-        else:    
-            senda._historial.append("→⚔")
+        senda.marcar_Rival()
     elif evento == BJefe:
         bjefe = crear_Jefe(senda.get_generador().aleatorio(), len(senda.get_camino()))
         enfrentamiento(senda.get_jugador(), bjefe,senda.get_generador())
-        senda._historial.append( "→☠")
+        senda.agregar_Historial( "→☠")
         jefe_Derrotado()
     elif evento == Curacion:
         senda.get_jugador().curar(senda.get_jugador().get_hpMax()*porcentajeCuracionEvento//100)
-        senda._historial.append("→♥") 
+        senda.agregar_Historial("→♥") 
     elif evento == Cofre:
         v1 = (senda.get_generador().aleatorio() * senda.get_generador().aleatorio() )// 713
         v1 = raiz_digital(v1)
@@ -45,18 +41,18 @@ def resolver_Evento(senda, evento):
             calculo_Repartir_Stats(senda.get_jugador())               
             mostrar_Stats(senda.get_jugador())
             imprimir_Cofre_SubirNivel()
-            senda._historial.append("→[↑]")
+            senda.agregar_Historial("→[↑]")
         elif v1 <= umbralCuracion:
             vidaCurar=senda.get_jugador().get_hpMax()*porcentajeCuracionCofre//100
             senda.get_jugador().curar(vidaCurar)
             imprimir_Cofre_Curacion(vidaCurar)
-            senda._historial.append("→[♥]")
+            senda.agregar_Historial("→[♥]")
         elif v1 <= umbralBatalla:
-            senda._historial.append("[")
+            senda.agregar_Historial("[")
             resolver_Evento(senda,BRival)
             imprimir_Cofre_Batalla()
         else:
             vidaDaño=senda.get_jugador().get_hpMax()*porcentajeDañoCofre//100
             senda.get_jugador().recibir_Daño(vidaDaño)
             imprimir_Cofre_Daño(vidaDaño)
-            senda._historial.append("→[↓]")
+            senda.agregar_Historial("→[↓]")
