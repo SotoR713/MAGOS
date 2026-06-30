@@ -117,9 +117,9 @@ def imprimir_Repartir_Stats(puntos):
                 imprimir_Mensaje_OpcionNoValida()
     return eleccion
 
-def finalizar_juego(mapa1):
-    print("senda: ",mapa1._caminoHistorico)
-    print("Has llegado hasta la posicion:",mapa1.get_posicion())
+def finalizar_juego(camino, posicion):
+    print("senda: ",camino)
+    print("Has llegado hasta la posicion:",posicion)
     print("")
     titulo_Final()
     print("")

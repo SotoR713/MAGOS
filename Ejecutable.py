@@ -12,5 +12,5 @@ while bucle_Juego ==0:
         evento = avanzar(mapa1)       
         resolver_Evento(mapa1,evento)
         mapa1.generar_Siguientes()
-    finalizar_juego(mapa1)
+    finalizar_juego(mapa1.get_caminoHistorico(),mapa1.get_posicion())
    
